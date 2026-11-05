@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Mobil Araç Servisi",
+    "slug": "mobil-arac-servisi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Servis talebinize konum eklemek için konum izni kullanılır."
+      }
+    },
+    "android": {
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "package": "tr.mobilservis.app"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Servis talebinize konum eklemek için konum izni kullanılır."
+        }
+      ]
+    ]
+  }
+}
