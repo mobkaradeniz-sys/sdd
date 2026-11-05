@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model Customer {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  phone     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  requests  ServiceRequest[]
+}
+model ServiceRequest {
+  id          String   @id @default(cuid())
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id])
+  vehicle     String
+  plate       String?
+  category    String
+  description String
+  address     String
+  latitude    Float?
+  longitude   Float?
+  status      String   @default("YENI")
+  distanceKm  Float?
+  travelFee   Int?
+  adminNote   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
